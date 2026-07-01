@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casino PWA v2</title>
 
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <h1>🎰 Casino PWA</h1>
+
+  <div class="wallet">
+    💰 <span id="balance">1000</span>
+    &nbsp;&nbsp;
+    ⭐ Lv <span id="level">1</span>
+  </div>
+</header>
+
+<nav class="navbar">
+  <button onclick="openTab('home')">Home</button>
+  <button onclick="openTab('crash')">Crash</button>
+  <button onclick="openTab('mines')">Mines</button>
+  <button onclick="openTab('slots')">Slots</button>
+  <button onclick="openTab('plinko')">Plinko</button>
+  <button onclick="openTab('profile')">Profil</button>
+</nav>
+
+<main>
+
+<section id="home" class="tab active">
+  <h2>Willkommen 👋</h2>
+  <p>Casino PWA Version 2.0</p>
+</section>
+
+<section id="crash" class="tab">
+  <h2>🚀 Crash</h2>
+</section>
+
+<section id="mines" class="tab">
+  <h2>💣 Mines</h2>
+</section>
+
+<section id="slots" class="tab">
+  <h2>🎰 Slots</h2>
+</section>
+
+<section id="plinko" class="tab">
+  <h2>🎡 Plinko</h2>
+</section>
+
+<section id="profile" class="tab">
+  <h2>👤 Profil</h2>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
