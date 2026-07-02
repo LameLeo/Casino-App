@@ -14,6 +14,15 @@ const history = document.getElementById("history");
 let historyList = [];
 
 // ----------------------------
+// CANVAS
+// ----------------------------
+
+const canvas = document.getElementById("crashCanvas");
+const ctx = canvas.getContext("2d");
+
+let graphPoints = [];
+
+// ----------------------------
 // START
 // ----------------------------
 
@@ -36,6 +45,7 @@ document.getElementById("startCrash").onclick = function(){
     addCoins(-bet);
 
     multiplier = 1;
+    graphPoints = [];
     crashRunning = true;
 
     display.style.color="#00ff88";
@@ -55,6 +65,16 @@ document.getElementById("startCrash").onclick = function(){
 function updateCrash(){
 
     multiplier += 0.02;
+
+    graphPoints.push({
+
+    x:40+graphPoints.length*3,
+
+    y:370-(multiplier-1)*60
+
+});
+
+drawGraph();
 
     display.textContent =
     multiplier.toFixed(2)+"x";
@@ -131,5 +151,73 @@ function addHistory(value){
         history.appendChild(div);
 
     });
+
+}
+
+// ----------------------------
+// KURVE ZEICHNEN
+// ----------------------------
+
+function drawGraph(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    // Hintergrund
+    ctx.fillStyle="#111827";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // Raster
+    ctx.strokeStyle="#202938";
+    ctx.lineWidth=1;
+
+    for(let x=0;x<canvas.width;x+=50){
+
+        ctx.beginPath();
+        ctx.moveTo(x,0);
+        ctx.lineTo(x,canvas.height);
+        ctx.stroke();
+
+    }
+
+    for(let y=0;y<canvas.height;y+=50){
+
+        ctx.beginPath();
+        ctx.moveTo(0,y);
+        ctx.lineTo(canvas.width,y);
+        ctx.stroke();
+
+    }
+
+    // Kurve
+
+    if(graphPoints.length<2)
+        return;
+
+    ctx.beginPath();
+
+    ctx.strokeStyle="#00ff88";
+    ctx.lineWidth=4;
+
+    ctx.moveTo(graphPoints[0].x,graphPoints[0].y);
+
+    graphPoints.forEach(p=>{
+
+        ctx.lineTo(p.x,p.y);
+
+    });
+
+    ctx.stroke();
+
+    // Punkt an der Spitze
+
+    const last=graphPoints[graphPoints.length-1];
+
+    ctx.beginPath();
+
+    ctx.arc(last.x,last.y,6,0,Math.PI*2);
+
+    ctx.fillStyle="#00ff88";
+
+    ctx.fill();
 
 }
