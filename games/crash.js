@@ -195,18 +195,31 @@ function drawGraph(){
 
     ctx.beginPath();
 
-    ctx.strokeStyle="#00ff88";
-    ctx.lineWidth=4;
+ctx.strokeStyle="#00ff88";
+ctx.lineWidth=4;
 
-    ctx.moveTo(graphPoints[0].x,graphPoints[0].y);
+ctx.shadowColor="#00ff88";
+ctx.shadowBlur=18;
 
-    graphPoints.forEach(p=>{
+ctx.moveTo(graphPoints[0].x, graphPoints[0].y);
 
-        ctx.lineTo(p.x,p.y);
+for(let i=1;i<graphPoints.length-1;i++){
 
-    });
+    const xc=(graphPoints[i].x+graphPoints[i+1].x)/2;
+    const yc=(graphPoints[i].y+graphPoints[i+1].y)/2;
 
-    ctx.stroke();
+    ctx.quadraticCurveTo(
+        graphPoints[i].x,
+        graphPoints[i].y,
+        xc,
+        yc
+    );
+
+}
+
+ctx.stroke();
+
+ctx.shadowBlur=0;
 
     // Punkt an der Spitze
 
