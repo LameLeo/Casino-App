@@ -10,6 +10,14 @@ let player = JSON.parse(localStorage.getItem("acePlayer")) || {
     xp: 0,
     level: 1
 
+    gamesPlayed:0,
+    gamesWon:0,
+
+    coinsWon:0,
+    coinsLost:0,
+
+    streak:0
+
 };
 
 // ---------- Speichern ----------
