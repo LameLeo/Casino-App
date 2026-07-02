@@ -68,9 +68,9 @@ function updateCrash(){
 
     graphPoints.push({
 
-    x:40+graphPoints.length*3,
+    x: 40 + graphPoints.length * 4,
 
-    y:370-(multiplier-1)*60
+    y: Math.max(30, canvas.height - 30 - (multiplier - 1) * 55)
 
 });
 
