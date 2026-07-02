@@ -125,6 +125,24 @@ function addXP(amount){
 
 }
 
+function recordGame(win,coins){
+
+    player.gamesPlayed++;
+
+    if(win){
+
+        player.gamesWon++;
+        player.coinsWon+=coins;
+
+    }else{
+
+        player.coinsLost+=Math.abs(coins);
+
+    }
+
+    updateUI();
+
+}
 // ---------- Navigation ----------
 
 function showPage(page){
