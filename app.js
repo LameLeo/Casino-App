@@ -71,8 +71,6 @@ function updateUI(){
 
 }
 
-}
-
 // ---------- Coins ----------
 
 function addCoins(amount){
