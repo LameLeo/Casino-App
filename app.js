@@ -118,4 +118,45 @@ function showPage(page){
 
 // ---------- Start ----------
 
+const dailyButton=document.getElementById("dailyRewardBtn");
+
+if(dailyButton){
+
+    dailyButton.onclick=function(){
+
+        const last=
+        Number(localStorage.getItem("dailyReward"))||0;
+
+        const now=Date.now();
+
+        const cooldown=24*60*60*1000;
+
+        if(now-last>=cooldown){
+
+            addCoins(250);
+
+            addXP(100);
+
+            localStorage.setItem("dailyReward",now);
+
+            alert("🎉 Daily Reward!\n\n+250 Coins\n+100 XP");
+
+        }else{
+
+            const left=cooldown-(now-last);
+
+            const hours=Math.floor(left/3600000);
+
+            const mins=Math.floor((left%3600000)/60000);
+
+            alert(
+            "⏳ Bereits eingesammelt.\n\n"+
+            hours+"h "+mins+"min verbleibend.");
+
+        }
+
+    };
+
+}
+
 updateUI();
