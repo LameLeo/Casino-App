@@ -1,24 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Ace Arcade</title>
 
 <link rel="manifest" href="manifest.json">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/crash.css">
+<link rel="stylesheet" href="css/mines.css">
+<link rel="stylesheet" href="css/slots.css">
+<link rel="stylesheet" href="css/plinko.css">
 
 </head>
 
 <body>
 
-<header>
+<header class="topbar">
 
 <div class="logo">
 
@@ -36,7 +38,7 @@
 
 </header>
 
-<nav>
+<nav class="navbar">
 
 <button onclick="showPage('home')">🏠</button>
 
@@ -56,43 +58,13 @@
 
 <section id="home" class="page active">
 
-<h1>Willkommen!</h1>
+<h1>Willkommen bei Ace Arcade</h1>
 
 <div class="card">
 
-<h2>Wallet</h2>
+<h2>Dashboard</h2>
 
-<p>Coins: <span id="walletCoins">1000</span></p>
-
-<p>Level: <span id="walletLevel">1</span></p>
-
-</div>
-
-<div class="card">
-
-<h2>Daily Reward</h2>
-
-<button id="dailyRewardBtn">
-
-🎁 Einsammeln
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>Missionen</h2>
-
-<ul>
-
-<li>🚀 Spiele Crash</li>
-
-<li>💣 Gewinne Mines</li>
-
-<li>🎰 Drehe Slots</li>
-
-</ul>
+<p>Dies ist die neue Version 3.</p>
 
 </div>
 
@@ -102,112 +74,11 @@
 
 <h1>🚀 Crash</h1>
 
-<div class="card">
-
-<h2>Einsatz</h2>
-
-<input
-type="number"
-id="crashBet"
-value="100"
-min="10"
-step="10">
-
-<button id="startCrash">
-
-🚀 Start
-
-</button>
-
-<button id="cashOut">
-
-💰 Cash Out
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>Multiplikator</h2>
-
-<h1 id="multiplier">
-
-1.00x
-
-</h1>
-
-</div>
-
-<div class="card">
-
-<h2>Verlauf</h2>
-
-<div id="history">
-
-Noch keine Runde.
-
-</div>
-
-</div>
-
 </section>
 
 <section id="mines" class="page">
 
 <h1>💣 Mines</h1>
-
-<div class="card">
-
-<h2>Einsatz</h2>
-
-<input
-id="minesBet"
-type="number"
-value="100"
-min="10">
-
-<h2>Bomben</h2>
-
-<input
-id="bombCount"
-type="number"
-value="3"
-min="1"
-max="24">
-
-<button id="startMines">
-
-🎮 Spiel starten
-
-</button>
-
-</div>
-
-<div class="card">
-
-<p>💣 Bomben:
-<span id="bombText">3</span></p>
-
-<p>💎 Sichere Felder:
-<span id="gemText">22</span></p>
-
-<p>Multiplikator:
-<span id="mineMultiplier">1.00x</span></p>
-
-<button id="cashOutMines">
-
-💰 Cash Out
-
-</button>
-
-</div>
-
-<div class="card">
-
-<div id="mineGrid"></div>
-
-</div>
 
 </section>
 
@@ -215,15 +86,11 @@ max="24">
 
 <h1>🎰 Slots</h1>
 
-<p>Kommt in Modul 4</p>
-
 </section>
 
 <section id="plinko" class="page">
 
 <h1>🎡 Plinko</h1>
-
-<p>Kommt in Modul 5</p>
 
 </section>
 
@@ -231,13 +98,16 @@ max="24">
 
 <h1>👤 Profil</h1>
 
-<p>Kommt später.</p>
-
 </section>
 
 </main>
 
-<script src="script.js"></script>
+<script src="app.js"></script>
+
+<script src="games/crash.js"></script>
+<script src="games/mines.js"></script>
+<script src="games/slots.js"></script>
+<script src="games/plinko.js"></script>
 
 </body>
 
