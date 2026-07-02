@@ -202,9 +202,8 @@ function drawGraph(){
 
 ctx.strokeStyle = crashed ? "#ff3b30" : "#00ff88";
 ctx.shadowColor = crashed ? "#ff3b30" : "#00ff88";
+    
 ctx.lineWidth=4;
-
-ctx.shadowColor="#00ff88";
 ctx.shadowBlur=18;
 
 ctx.moveTo(graphPoints[0].x, graphPoints[0].y);
