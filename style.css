@@ -293,3 +293,110 @@ padding:15px;
     font-weight:bold;
 
 }
+
+/* ===========================
+   MINES 2.0
+=========================== */
+
+#mineGrid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    margin-top:20px;
+}
+
+.mineTile{
+
+    aspect-ratio:1;
+
+    background:#1d2633;
+
+    border:2px solid #2d3748;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    transition:.18s;
+
+    user-select:none;
+
+}
+
+.mineTile:hover{
+
+    transform:scale(1.05);
+
+    border-color:#00ff99;
+
+}
+
+.mineTile.safe{
+
+    background:#00ff99;
+
+    color:black;
+
+}
+
+.mineTile.bomb{
+
+    background:#ff4444;
+
+}
+
+#cashOutMines{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ffb000;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+#startMines{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#00ff99;
+
+    color:black;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
