@@ -111,9 +111,20 @@ function revealTile(index,tile){
 
         recordGame(false, currentBet); 
 
-        alert("💥 Boom! Du hast verloren.");
+        // Alle Bomben zeigen
+bombs.forEach(i=>{
 
-        return;
+    const bombTile =
+    document.querySelector(`[data-id="${i}"]`);
+
+    bombTile.textContent="💣";
+    bombTile.style.background="#ff3b30";
+
+});
+
+alert("💥 Boom! Du hast verloren.");
+
+return;
 
     }
 
