@@ -7,6 +7,8 @@ const grid = document.getElementById("minesGrid");
 let mineGame = [];
 let bombs = [];
 let gameRunning = false;
+let currentBet = 0;
+let revealed = 0;
 
 // ----------------------------
 // START
@@ -14,22 +16,22 @@ let gameRunning = false;
 
 document.getElementById("startMines").onclick = function(){
 
-    const bet = Number(document.getElementById("minesBet").value);
+    currentBet = Number(document.getElementById("minesBet").value);
 
-    if(bet <= 0){
+    if(currentBet <= 0){
         alert("Ungültiger Einsatz.");
         return;
     }
 
-    if(player.coins < bet){
+    if(player.coins < currentBet){
         alert("Nicht genügend Coins.");
         return;
     }
 
-    addCoins(-bet);
+    addCoins(-currentBet);
 
     gameRunning = true;
-
+    revealed = 0;
     createBoard();
 
 };
@@ -119,7 +121,7 @@ function revealTile(index,tile){
 
     tile.textContent = "💎";
     tile.style.background = "#00ff88";
+    revealed++;
 
 }
   
-
