@@ -73,6 +73,7 @@ function createBoard(){
 
     }
 
+}
 function revealTile(index,tile){
 
     if(mineGame[index].opened)
@@ -86,4 +87,4 @@ function revealTile(index,tile){
 
 }
   
-}
+
