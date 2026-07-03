@@ -72,7 +72,10 @@ function updateCrash(){
 
     x: 40 + graphPoints.length * 4,
 
-    y: Math.max(30, canvas.height - 30 - (multiplier - 1) * 55)
+    y: Math.max(
+    30,
+    canvas.height - 30 - (Math.pow(multiplier, 1.8) - 1) * 28
+)
 
 });
 
@@ -277,6 +280,10 @@ function drawGraph(){
     ctx.shadowBlur=18;
 
     ctx.lineWidth=4;
+
+    ctx.lineCap = "round";
+    
+    ctx.lineJoin = "round";
 
     ctx.stroke();
 
