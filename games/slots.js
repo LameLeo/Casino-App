@@ -207,11 +207,11 @@ if(s1===s2 && s2===s3){
 
         default:
             multiplier = 1.2;
+            break;
 
     }
 
     message = "✨ 2 Gleiche!";
-
 }
 
 // ===== Auszahlung =====
