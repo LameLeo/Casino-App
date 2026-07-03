@@ -87,13 +87,6 @@ bombs.forEach(index=>{
 
         grid.appendChild(tile);
 
-        mineGame.push({
-
-            bomb:false,
-            opened:false
-
-        });
-
     }
 
 }
