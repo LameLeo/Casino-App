@@ -34,6 +34,7 @@ document.getElementById("minesMultiplier").textContent = "1.00x";
 
     gameRunning = true;
     revealed = 0;
+    updateChance();
     createBoard();
 
 };
@@ -157,6 +158,7 @@ tile.style.transform = "scale(0.95)";
 tile.onclick = null;
 
 revealed++;
+updateChance();
 
 const multiplier =
 (
