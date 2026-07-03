@@ -88,7 +88,22 @@ bombs.forEach(index=>{
         grid.appendChild(tile);
 
     }
+while(bombs.length < 3){
 
+    const random = Math.floor(Math.random()*25);
+
+    if(!bombs.includes(random)){
+        bombs.push(random);
+    }
+
+}
+
+bombs.forEach(index=>{
+
+    mineGame[index].bomb = true;
+
+});
+    
 }
 function revealTile(index,tile){
 
