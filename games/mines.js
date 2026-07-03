@@ -125,3 +125,25 @@ function revealTile(index,tile){
 
 }
   
+document.getElementById("cashOutMines").onclick = function(){
+
+    if(!gameRunning) return;
+
+    gameRunning = false;
+
+    const multiplier = 1 + revealed * 0.35;
+
+    const win = Math.floor(currentBet * multiplier);
+
+    addCoins(win);
+    addXP(20);
+
+    recordGame(true, win);
+
+    alert(
+        "💰 Cash Out!\n\n" +
+        "Multiplier: " + multiplier.toFixed(2) + "x\n" +
+        "Gewinn: " + win + " Coins"
+    );
+
+};
