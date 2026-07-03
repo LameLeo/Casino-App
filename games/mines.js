@@ -106,8 +106,10 @@ function revealTile(index,tile){
 
         tile.textContent = "💣";
         tile.style.background = "#ff3b30";
+        tile.classList.add("open");
+        tile.classList.add("bomb");
         tile.style.cursor = "default";
-tile.onclick = null;
+        tile.onclick = null;
 
         gameRunning = false;
 
@@ -131,7 +133,8 @@ return;
     }
 
     tile.textContent = "💎";
-tile.style.background = "#00ff88";
+    tile.style.background = "#00ff88";
+    tile.classList.add("open");
 
 tile.style.cursor = "default";
 tile.style.transform = "scale(0.95)";
