@@ -54,6 +54,10 @@ document.getElementById("spinSlots").onclick = function(){
     const slot2 = document.getElementById("slot2");
     const slot3 = document.getElementById("slot3");
 
+    slot1.className = "slot";
+    slot2.className = "slot";
+    slot3.className = "slot";
+
     slot1.classList.add("spinning");
     slot2.classList.add("spinning");
     slot3.classList.add("spinning");
@@ -111,10 +115,6 @@ function finishSpin(bet){
     slot1.textContent = s1;
     slot2.textContent = s2;
     slot3.textContent = s3;
-
-    slot1.classList.remove("win","lose");
-    slot2.classList.remove("win","lose");
-    slot3.classList.remove("win","lose");
 
     if(s1===s2 && s2===s3){
 
