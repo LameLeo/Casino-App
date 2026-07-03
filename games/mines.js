@@ -146,10 +146,6 @@ const multiplier = 1 + revealed * 0.35;
 
 document.getElementById("minesMultiplier").textContent =
     multiplier.toFixed(2) + "x";
-    const multiplier = 1 + revealed * 0.35;
-
-document.getElementById("minesMultiplier").textContent =
-    multiplier.toFixed(2) + "x";
 
 }
   
