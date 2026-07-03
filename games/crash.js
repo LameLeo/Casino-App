@@ -23,6 +23,7 @@ const ctx = canvas.getContext("2d");
 let graphPoints = [];
 let crashed = false;
 let particles = [];
+let explosionTimer = null;
 
 // ----------------------------
 // START
@@ -95,9 +96,21 @@ drawGraph();
 
 const last = graphPoints[graphPoints.length-1];
 
-createExplosion(last.x, last.y);
+createExplosion(last.x,last.y);
 
 drawGraph();
+
+explosionTimer = setInterval(function(){
+
+    drawGraph();
+
+    if(particles.length===0){
+
+        clearInterval(explosionTimer);
+
+    }
+
+},20);
 
         display.style.color="#ff3b30";
 
@@ -339,9 +352,14 @@ particles.forEach(p=>{
 
     ctx.arc(p.x,p.y,3,0,Math.PI*2);
 
-    ctx.fillStyle="orange";
+    ctx.fillStyle = crashed ? "#ff3b30" : "#00ff88";
+
+ctx.shadowColor = ctx.fillStyle;
+ctx.shadowBlur = 12;
 
     ctx.fill();
+
+    ctx.shadowBlur = 0;
 
     p.x += p.vx;
     p.y += p.vy;
