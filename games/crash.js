@@ -22,6 +22,7 @@ const ctx = canvas.getContext("2d");
 
 let graphPoints = [];
 let crashed = false;
+let particles = [];
 
 // ----------------------------
 // START
@@ -91,6 +92,11 @@ drawGraph();
         crashRunning=false;
 
         crashed = true;
+
+const last = graphPoints[graphPoints.length-1];
+
+createExplosion(last.x, last.y);
+
 drawGraph();
 
         display.style.color="#ff3b30";
@@ -163,7 +169,27 @@ function addHistory(value){
     });
 
 }
+function createExplosion(x, y){
 
+    particles = [];
+
+    for(let i=0; i<30; i++){
+
+        particles.push({
+
+            x: x,
+            y: y,
+
+            vx: (Math.random()-0.5) * 8,
+            vy: (Math.random()-0.5) * 8,
+
+            life: 40
+
+        });
+
+    }
+
+}
 // ----------------------------
 // KURVE ZEICHNEN
 // ----------------------------
@@ -305,4 +331,25 @@ function drawGraph(){
 
     ctx.shadowBlur=0;
 
+    // ---------- Explosion ----------
+
+particles.forEach(p=>{
+
+    ctx.beginPath();
+
+    ctx.arc(p.x,p.y,3,0,Math.PI*2);
+
+    ctx.fillStyle="orange";
+
+    ctx.fill();
+
+    p.x += p.vx;
+    p.y += p.vy;
+
+    p.life--;
+
+});
+
+particles = particles.filter(p=>p.life>0);
+    
 }
