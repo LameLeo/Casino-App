@@ -161,10 +161,7 @@ revealed++;
 updateChance();
 
 const multiplier =
-(
-    1 +
-    (revealed * (bombCount / 8))
-).toFixed(2);
+1 + (revealed * (bombCount / 8));
 
 document.getElementById("minesMultiplier").textContent =
     multiplier.toFixed(2) + "x";
