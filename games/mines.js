@@ -25,6 +25,7 @@ Number(document.getElementById("bombCount").value);
         return;
     }
 document.getElementById("minesMultiplier").textContent = "1.00x";
+document.getElementById("mineWin").textContent = "0";
     if(player.coins < currentBet){
         alert("Nicht genügend Coins.");
         return;
@@ -165,6 +166,11 @@ const multiplier =
 
 document.getElementById("minesMultiplier").textContent =
     multiplier.toFixed(2) + "x";
+
+const currentWin = Math.floor(currentBet * multiplier);
+
+document.getElementById("mineWin").textContent =
+    currentWin;
 
 }
   
