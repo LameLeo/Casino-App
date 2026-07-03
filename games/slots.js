@@ -62,8 +62,12 @@ document.getElementById("spinSlots").onclick = function(){
     const slot3 = document.getElementById("slot3");
 
     slot1.className = "slot spinning";
-    slot2.className = "slot spinning";
-    slot3.className = "slot spinning";
+slot2.className = "slot spinning";
+slot3.className = "slot spinning";
+
+slot1.classList.remove("win","lose");
+slot2.classList.remove("win","lose");
+slot3.classList.remove("win","lose");
 
     let spins = 0;
 
