@@ -116,15 +116,29 @@ function revealTile(index,tile){
         recordGame(false, currentBet); 
 
         // Alle Bomben zeigen
-bombs.forEach(i=>{
+for(let i=0;i<mineGame.length;i++){
 
-    const bombTile =
+    const currentTile =
     document.querySelector(`[data-id="${i}"]`);
 
-    bombTile.textContent="💣";
-    bombTile.style.background="#ff3b30";
+    currentTile.onclick = null;
+    currentTile.style.cursor = "default";
 
-});
+    if(mineGame[i].bomb){
+
+        currentTile.textContent = "💣";
+        currentTile.style.background = "#ff3b30";
+        currentTile.classList.add("open");
+
+    }else{
+
+        currentTile.textContent = "💎";
+        currentTile.style.background = "#00ff88";
+        currentTile.classList.add("open");
+
+    }
+
+}
 
 alert("💥 Boom! Du hast verloren.");
 
