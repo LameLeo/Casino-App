@@ -114,6 +114,8 @@ document.getElementById("cashOut").onclick=function(){
 
     crashRunning=false;
 
+    crashed = false;
+
     const win=
     Math.floor(bet*multiplier);
 
