@@ -120,29 +120,32 @@ const animation = setInterval(function(){
 
     // Erste Walze stoppt
     if(spins === 25){
-        slot1.classList.remove("spinning");
-    }
+    slot1.classList.remove("spinning");
+    slot1.textContent = final1;
+}
 
     // Zweite Walze stoppt
     if(spins === 28){
-        slot2.classList.remove("spinning");
-    }
+    slot2.classList.remove("spinning");
+    slot2.textContent = final2;
+}
 
     // Dritte Walze stoppt
     if(spins === 31){
 
-        clearInterval(animation);
+    clearInterval(animation);
 
-        slot3.classList.remove("spinning");
+    slot3.classList.remove("spinning");
+    slot3.textContent = final3;
 
-        finishSpin(
-    bet,
-    final1,
-    final2,
-    final3
-);
+    finishSpin(
+        bet,
+        final1,
+        final2,
+        final3
+    );
 
-    }
+}
 
 },100);
     
