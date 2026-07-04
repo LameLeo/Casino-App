@@ -162,7 +162,6 @@ if(s1===s2 && s2===s3){
     }
 
     message = "🎉 JACKPOT!";
-}
     
 // ===== 2 gleiche =====
 
@@ -254,3 +253,4 @@ result.textContent=
 "❌ Leider verloren.";
 
 }
+
