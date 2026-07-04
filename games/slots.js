@@ -224,17 +224,50 @@ if(win){
 
     recordGame(true, coins);
 
-    slot1.className = "slot win";
-    slot2.className = "slot win";
-    slot3.className = "slot win";
+    slot1.className = "slot";
+    slot2.className = "slot";
+    slot3.className = "slot";
+
+    // 3 gleiche
+    if(s1===s2 && s2===s3){
+
+        slot1.classList.add("win");
+        slot2.classList.add("win");
+        slot3.classList.add("win");
+
+    }
+
+    // 1 + 2
+    else if(s1===s2){
+
+        slot1.classList.add("win");
+        slot2.classList.add("win");
+
+    }
+
+    // 2 + 3
+    else if(s2===s3){
+
+        slot2.classList.add("win");
+        slot3.classList.add("win");
+
+    }
+
+    // 1 + 3
+    else{
+
+        slot1.classList.add("win");
+        slot3.classList.add("win");
+
+    }
 
     const result =
-document.getElementById("slotResult");
+    document.getElementById("slotResult");
 
-result.style.color="#00ff88";
+    result.style.color="#00ff88";
 
-result.textContent=
-message + " +" + coins + " Coins";
+    result.textContent =
+    message + " +" + coins + " Coins";
 
 }else{
 
@@ -245,15 +278,11 @@ message + " +" + coins + " Coins";
     slot3.className = "slot lose";
 
     const result =
-document.getElementById("slotResult");
+    document.getElementById("slotResult");
 
-result.style.color="#ff3b30";
+    result.style.color="#ff3b30";
 
-result.textContent=
-"❌ Leider verloren.";
+    result.textContent =
+    "❌ Leider verloren.";
 
-}
-
-slotRunning = false;
-    
 }
