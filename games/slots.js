@@ -347,6 +347,36 @@ recordGame(true, coins);
     result.textContent =
     message + " +" + coins + " Coins";
 
+    // Konfetti bei 3 gleichen Symbolen
+if(s1 === s2 && s2 === s3){
+
+    confetti({
+
+        particleCount: 180,
+        spread: 90,
+        origin:{ y:0.6 }
+
+    });
+
+}
+
+    // Extra-Effekt bei 3x7️⃣
+if(s1==="7️⃣" && s2==="7️⃣" && s3==="7️⃣"){
+
+    setTimeout(()=>{
+
+        confetti({
+
+            particleCount:350,
+            spread:140,
+            origin:{y:0.6}
+
+        });
+
+    },300);
+
+}
+
 }else{
 
     recordGame(false, bet);
