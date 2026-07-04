@@ -56,6 +56,7 @@ document.getElementById("spinSlots").onclick = function(){
 
     document.getElementById("slotResult").textContent =
     "🎰 Dreht...";
+    document.getElementById("slotResult").style.color = "#00ff88";
 
     const slot1 = document.getElementById("slot1");
     const slot2 = document.getElementById("slot2");
