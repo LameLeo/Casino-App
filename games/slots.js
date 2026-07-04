@@ -363,7 +363,15 @@ if(s1 === s2 && s2 === s3){
     // Extra-Effekt bei 3x7️⃣
 if(s1==="7️⃣" && s2==="7️⃣" && s3==="7️⃣"){
 
-    setTimeout(()=>{
+    document.body.classList.add("jackpotShake");
+
+    setTimeout(function(){
+
+        document.body.classList.remove("jackpotShake");
+
+    },600);
+
+    setTimeout(function(){
 
         confetti({
 
@@ -376,7 +384,6 @@ if(s1==="7️⃣" && s2==="7️⃣" && s3==="7️⃣"){
     },300);
 
 }
-
 }else{
 
     recordGame(false, bet);
