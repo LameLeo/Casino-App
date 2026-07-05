@@ -19,6 +19,15 @@ const symbols = [
 ];
 
 let slotRunning = false;
+const spinSound = new Audio("..sounds/spin.mp3.wav");
+const winSound = new Audio("..sounds/win.mp3.wav");
+const loseSound = new Audio("..sounds/lose.mp3.wav");
+const jackpotSound = new Audio("..sounds/jackpot.mp3.wav");
+
+spinSound.volume = 0.4;
+winSound.volume = 0.5;
+loseSound.volume = 0.5;
+jackpotSound.volume = 0.8;
 let jackpot = 1000;
 
 // ----------------------------
@@ -58,6 +67,8 @@ document.getElementById("slotJackpot").textContent =
     document.getElementById("slotResult").innerHTML = "";
 
     slotRunning = true;
+    spinSound.currentTime = 0;
+    spinSound.play();
 
     document.getElementById("slotResult").textContent =
     "🎰 Dreht...";
@@ -167,6 +178,10 @@ function finishSpin(
     s3
 ){
 
+    spinSound.pause();
+    spinSound.currentTime = 0;
+
+
     const slot1 = document.getElementById("slot1");
     const slot2 = document.getElementById("slot2");
     const slot3 = document.getElementById("slot3");
@@ -220,6 +235,8 @@ if(s1===s2 && s2===s3){
 }else{
 
     message = "🎉 JACKPOT!";
+    jackpotSound.currentTime = 0;
+    jackpotSound.play();
 
 }
     
@@ -271,6 +288,8 @@ if(s1===s2 && s2===s3){
     }
 
     message = "✨ 2 Gleiche!";
+    winSound.currentTime = 0;
+    winSound.play();
 }
 
 // ===== Auszahlung =====
@@ -387,6 +406,8 @@ if(s1==="7️⃣" && s2==="7️⃣" && s3==="7️⃣"){
 }else{
 
     recordGame(false, bet);
+    loseSound.currentTime = 0;
+    loseSound.play();
 
     slot1.className = "slot lose";
     slot2.className = "slot lose";
