@@ -19,10 +19,10 @@ const symbols = [
 ];
 
 let slotRunning = false;
-const spinSound = new Audio("..sounds/spin.mp3.wav");
-const winSound = new Audio("..sounds/win.mp3.wav");
-const loseSound = new Audio("..sounds/lose.mp3.wav");
-const jackpotSound = new Audio("..sounds/jackpot.mp3.wav");
+const spinSound = new Audio("../sounds/spin.mp3.wav");
+const winSound = new Audio("../sounds/win.mp3.wav");
+const loseSound = new Audio("../sounds/lose.mp3.wav");
+const jackpotSound = new Audio("../sounds/jackpot.mp3.wav");
 
 spinSound.volume = 0.4;
 winSound.volume = 0.5;
