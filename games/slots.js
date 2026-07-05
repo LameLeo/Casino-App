@@ -427,3 +427,7 @@ if(s1==="7️⃣" && s2==="7️⃣" && s3==="7️⃣"){
 slotRunning = false;
 
 }
+
+window.onload = function () {
+    spinSound.play();
+};
