@@ -218,22 +218,29 @@ let win = false;
 
 // ===== 3 gleiche =====
 
-if(s1 === "⭐" && s2 === "⭐" && s3 === "⭐"){
+// ===== 3 gleiche =====
 
-    freeSpins += 5;
-    alert("🎁 BONUS! Du hast 5 Freispiele gewonnen!");
+if(s1===s2 && s2===s3){
 
-    document.getElementById("slotFreeSpins").textContent =
-    freeSpins;
-    confetti({
+    win = true;
 
-    particleCount:250,
-    spread:120,
-    origin:{ y:0.6 }
+    // Freispiele bei 3 Sternen
+    if(s1==="⭐"){
 
-});
+        freeSpins += 5;
 
-}
+        document.getElementById("slotFreeSpins").textContent =
+        freeSpins;
+
+        alert("🎁 BONUS! Du hast 5 Freispiele gewonnen!");
+
+        confetti({
+            particleCount:250,
+            spread:120,
+            origin:{y:0.6}
+        });
+
+    }
 
     switch(s1){
 
@@ -263,18 +270,20 @@ if(s1 === "⭐" && s2 === "⭐" && s3 === "⭐"){
 
     }
 
-    if(s1 === "7️⃣"){
+    if(s1==="7️⃣"){
 
-    message = "💰 MEGA JACKPOT!";
+        message="💰 MEGA JACKPOT!";
 
-}else{
+    }else{
 
-    message = "🎉 JACKPOT!";
+        message="🎉 JACKPOT!";
+
+    }
+
+    jackpotSound.currentTime=0;
+    jackpotSound.play();
 
 }
-
-jackpotSound.currentTime = 0;
-jackpotSound.play();
     
 // ===== 2 gleiche =====
 
