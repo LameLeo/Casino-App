@@ -48,12 +48,12 @@ document.getElementById("spinSlots").onclick = function(){
 
     }
 
-    if(player.coins < bet){
+    if(freeSpins === 0 && player.coins < bet){
 
-        alert("Nicht genügend Coins.");
-        return;
+    alert("Nicht genügend Coins.");
+    return;
 
-    }
+}
 
     if(freeSpins > 0){
 
@@ -281,7 +281,7 @@ if(s1===s2 && s2===s3){
     jackpotSound.currentTime=0;
     jackpotSound.play();
 
-
+}
     
 // ===== 2 gleiche =====
 
