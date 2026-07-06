@@ -83,8 +83,17 @@ document.getElementById("spinSlots").onclick = function(){
     spinSound.currentTime = 0;
     spinSound.play();
 
+    if(freeSpins > 0){
+
+    document.getElementById("slotResult").textContent =
+    "🎁 Freispiele: " + freeSpins;
+
+}else{
+
     document.getElementById("slotResult").textContent =
     "🎰 Dreht...";
+
+}
     document.getElementById("slotResult").style.color = "#00ff88";
 
     const slot1 = document.getElementById("slot1");
@@ -212,9 +221,17 @@ let win = false;
 if(s1 === "⭐" && s2 === "⭐" && s3 === "⭐"){
 
     freeSpins += 5;
+    alert("🎁 BONUS! Du hast 5 Freispiele gewonnen!");
 
     document.getElementById("slotFreeSpins").textContent =
     freeSpins;
+    confetti({
+
+    particleCount:250,
+    spread:120,
+    origin:{ y:0.6 }
+
+});
 
 }
 
