@@ -281,7 +281,7 @@ if(s1===s2 && s2===s3){
     jackpotSound.currentTime=0;
     jackpotSound.play();
 
-}
+
     
 // ===== 2 gleiche =====
 
