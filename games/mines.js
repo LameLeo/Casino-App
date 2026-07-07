@@ -158,8 +158,7 @@ document.getElementById("minesMultiplier").textContent =
 const currentWin = Math.floor(currentBet * multiplier);
 
 document.getElementById("mineWin").textContent =
-    currentWin;
-
+formatCoins(currentWin);
 }
   
 document.getElementById("cashOutMines").onclick = function(){
