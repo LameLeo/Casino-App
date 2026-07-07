@@ -120,29 +120,7 @@ function revealTile(index,tile){
         recordGame(false, currentBet); 
 
         // Alle Bomben zeigen
-for(let i=0;i<mineGame.length;i++){
-
-    const currentTile =
-    document.querySelector(`[data-id="${i}"]`);
-
-    currentTile.onclick = null;
-    currentTile.style.cursor = "default";
-
-    if(mineGame[i].bomb){
-
-        currentTile.textContent = "💣";
-        currentTile.style.background = "#ff3b30";
-        currentTile.classList.add("open");
-
-    }else{
-
-        currentTile.textContent = "💎";
-        currentTile.style.background = "#00ff88";
-        currentTile.classList.add("open");
-
-    }
-
-}
+revealAllTiles();
 
 alert("💥 Boom! Du hast verloren.");
 
@@ -192,6 +170,7 @@ document.getElementById("cashOutMines").onclick = function(){
     addXP(20);
 
     recordGame(true, win);
+    revealAllTiles();
 
     alert(
         "💰 Cash Out!\n\n" +
@@ -210,5 +189,32 @@ function updateChance(){
 
     document.getElementById("mineChance").textContent =
         chance.toFixed(1) + "%";
+
+}
+
+function revealAllTiles(){
+
+    for(let i = 0; i < mineGame.length; i++){
+
+        const tile = document.querySelector(`[data-id="${i}"]`);
+
+        tile.onclick = null;
+        tile.style.cursor = "default";
+
+        if(mineGame[i].bomb){
+
+            tile.textContent = "💣";
+            tile.style.background = "#ff3b30";
+            tile.classList.add("open","bomb");
+
+        }else{
+
+            tile.textContent = "💎";
+            tile.style.background = "#00ff88";
+            tile.classList.add("open");
+
+        }
+
+    }
 
 }
