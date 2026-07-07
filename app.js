@@ -215,3 +215,9 @@ if(dailyButton){
 }
 
 updateUI();
+
+function formatCoins(value){
+
+    return Number(value).toLocaleString("de-DE");
+
+}
