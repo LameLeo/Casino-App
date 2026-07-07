@@ -348,14 +348,14 @@ if(s1 === "7️⃣" && s2 === "7️⃣" && s3 === "7️⃣"){
     jackpot = 1000;
 
     document.getElementById("slotJackpot").textContent =
-    jackpot;
+formatCoins(jackpot);
 
 }else{
 
     // Jackpot-Anzeige aktualisieren
-    document.getElementById("slotJackpot").textContent =
-    jackpot;
-
+   document.getElementById("slotJackpot").textContent =
+formatCoins(jackpot);
+    
 }
 
 addCoins(coins);
