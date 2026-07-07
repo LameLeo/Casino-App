@@ -184,7 +184,7 @@ document.getElementById("cashOutMines").onclick = function(){
     alert(
         "💰 Cash Out!\n\n" +
         "Multiplier: " + multiplier.toFixed(2) + "x\n" +
-        "Gewinn: " + win + " Coins"
+        "Gewinn: " + formatCoins(win) + " Coins"
     );
 
 };
