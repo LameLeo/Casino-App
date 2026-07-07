@@ -57,6 +57,16 @@ function createBoard(){
 
         tile.className="mineTile";
 
+        tile.style.background = "";
+        
+        tile.style.opacity = "";
+        
+        tile.style.boxShadow = "";
+        
+        tile.style.transform = "";
+        
+        tile.style.transition = "";
+
         tile.dataset.id=i;
 
         tile.onclick=function(){
@@ -196,24 +206,50 @@ function revealAllTiles(){
 
     for(let i = 0; i < mineGame.length; i++){
 
-        const tile = document.querySelector(`[data-id="${i}"]`);
+        setTimeout(function(){
 
-        tile.onclick = null;
-        tile.style.cursor = "default";
+            const tile = document.querySelector(`[data-id="${i}"]`);
 
-        if(mineGame[i].bomb){
+            tile.onclick = null;
+            tile.style.cursor = "default";
 
-            tile.textContent = "💣";
-            tile.style.background = "#ff3b30";
-            tile.classList.add("open","bomb");
+            // kleine Aufdeck-Animation
+            tile.style.transform = "scale(0)";
+            tile.style.transition = "all .18s ease";
 
-        }else{
+            setTimeout(function(){
 
-            tile.textContent = "💎";
-            tile.style.background = "#00ff88";
-            tile.classList.add("open");
+                tile.style.transform = "scale(1)";
 
-        }
+            },20);
+
+            if(mineGame[i].bomb){
+
+                // 💣 Bombe
+                tile.textContent = "💣";
+                tile.style.background = "#ff3b30";
+                tile.classList.add("open","bomb");
+
+            }else if(mineGame[i].opened){
+
+                // 💎 Bereits gefunden
+                tile.textContent = "💎";
+                tile.style.background = "#00ff88";
+                tile.style.boxShadow =
+                    "0 0 18px rgba(0,255,136,.9)";
+                tile.classList.add("open");
+
+            }else{
+
+                // 💎 Noch nicht gefunden
+                tile.textContent = "💎";
+                tile.style.background = "#475569";
+                tile.style.opacity = "0.7";
+                tile.classList.add("open");
+
+            }
+
+        }, i * 45); // 45ms Verzögerung pro Feld
 
     }
 
