@@ -56,8 +56,8 @@ function updateUI(){
     const level=document.getElementById("level");
 
     if(coins)
-        coins.textContent=player.coins;
-
+    coins.textContent = formatCoins(player.coins);
+    
     if(level)
         level.textContent=player.level;
 
@@ -65,8 +65,8 @@ function updateUI(){
     const walletLevel=document.getElementById("walletLevel");
 
     if(walletCoins)
-        walletCoins.textContent=player.coins;
-
+    walletCoins.textContent = formatCoins(player.coins);
+    
     if(walletLevel)
         walletLevel.textContent=player.level;
 
@@ -96,11 +96,11 @@ if(gamesWon)
 gamesWon.textContent=player.gamesWon;
 
 if(coinsWon)
-coinsWon.textContent=player.coinsWon;
+coinsWon.textContent = formatCoins(player.coinsWon);
 
 if(coinsLost)
-coinsLost.textContent=player.coinsLost;
-
+coinsLost.textContent = formatCoins(player.coinsLost);
+    
 if(streak)
 streak.textContent=player.streak+" Tage";
 
