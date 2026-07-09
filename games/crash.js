@@ -6,6 +6,7 @@ let crashRunning = false;
 let multiplier = 1;
 let crashPoint = 1;
 let bet = 0;
+let autoCash = 0;
 let timer = null;
 
 const display = document.getElementById("multiplierDisplay");
@@ -35,6 +36,12 @@ document.getElementById("startCrash").onclick = function(){
 
     bet = Number(document.getElementById("crashBet").value);
 
+    autoCash = Number(document.getElementById("autoCash").value);
+
+if(isNaN(autoCash) || autoCash < 1){
+    autoCash = 0;
+}
+
     if(bet <= 0){
         alert("Ungültiger Einsatz.");
         return;
@@ -55,8 +62,8 @@ document.getElementById("startCrash").onclick = function(){
     display.style.color="#00ff88";
     display.textContent="1.00x";
 
-    // Zufälliger Crash zwischen 1.00x und 6.00x
-    crashPoint = 1 + Math.random()*5;
+    // Zufälliger Crash zwischen 0.00x und 3.00x
+    crashPoint = 0 + Math.random()*3;
 
     timer = setInterval(updateCrash,40);
 
@@ -86,6 +93,18 @@ drawGraph();
     display.textContent =
     multiplier.toFixed(2)+"x";
 
+    // Auto Cash Out
+if(
+    crashRunning &&
+    autoCash > 1 &&
+    multiplier >= autoCash
+){
+
+    document.getElementById("cashOut").click();
+    return;
+
+}
+    
     if(multiplier >= crashPoint){
 
         clearInterval(timer);
